@@ -22,7 +22,7 @@ const contentEnglish = {
 
 const contentSpanish = {
   greeting:`Hey hola!`,
-  aboutme: `Ingeniero en Mecatrónica con gran pasión por el código y la tecnología. Di mis primeros pasos con Visual Basic y Ensamblador, cargador código a microcontroladores con programadores PIC. Luego empecé con el desarrallo web y desde entonces me he enfocado en este.`,
+  aboutme: `Ingeniero en Mecatrónica con gran pasión por el código y la tecnología. Di mis primeros pasos con Visual Basic y Ensamblador, cargando código a microcontroladores con programadores PIC. Luego empecé con el desarrallo web y desde entonces me he enfocado en este.`,
   checkvideo: `Mira mi presentación de 30 segundos`,
   videoLink: "https://www.youtube.com/embed/EqgOa1AvmDE"
 }
