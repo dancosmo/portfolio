@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useTheme } from "@mui/material";
+import { useTheme, CircularProgress } from "@mui/material";
 import {
   Grid,
   Typography,
@@ -8,7 +8,7 @@ import {
   Paper,
   Slide,
 } from "@mui/material";
-import profile from "../images/picture-1.jpg";
+import profile from "../images/miniature-removebg-preview.png";
 import handWave from "../images/wave-hello.gif";
 
 
@@ -32,7 +32,9 @@ const AboutMe = () => {
   let language = theme.language; 
   const [checked, setChecked] = useState(false);
   const [aboutMe, setAboutMe] = useState(contentEnglish);
+  const [loading, setLoading] = useState(true);
   
+  const loadingComplete = loading => loading ? setLoading(false) : null;
   
   useEffect(() => {
     setChecked(true);
@@ -52,7 +54,9 @@ const AboutMe = () => {
               sx={{ width: 250, height: 250 }}
               src={profile}
               alt="profile-picture"
+              onLoad={loadingComplete}
             ></Avatar>
+             {loading ? <CircularProgress color="secondary"/> : null}
           </Container>
         </Grid>
         <Grid item xs={9}>

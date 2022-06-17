@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Grid, Paper, Typography, Container, Slide } from "@mui/material";
+import { Grid, Paper, Typography, Container, Slide, CircularProgress } from "@mui/material";
 import { useTheme } from "@mui/material";
 import Pdf from "./pdfs/Pdf";
 import reactBadge from "../images/skills/icons8-react.svg";
@@ -24,7 +24,11 @@ const Resume = () => {
     let language = theme.language;
     const [checked, setChecked] = useState(false);
     const [content, setContent] = useState(contentEnglish);
+    const [loading, setLoading] = useState(true);
   
+    const loadingComplete = loading => loading ? setLoading(false) : null;
+
+
     useEffect(() => {
       setChecked(true);
   
@@ -72,11 +76,12 @@ const Resume = () => {
             <Grid container>
               {badges
                 ? badges.map((element) => {
-                  const key = element.badge.slice(40,60);
+          
                     return (
-                      <Grid container direction="row" alignItems="center" key={key} my={1} item xs={12} textAlign="center">
-                        <img width="48px" height="auto" src={element.badge} alt="skill-preview"></img>
+                      <Grid container direction="row" alignItems="center" key={element.name} my={1} item xs={12} textAlign="center">
+                        <img width="48px" height="auto" src={element.badge} alt="skill-preview" onLoad={loadingComplete}></img>
                         <Typography color="secondary" component="h1" variant="h6" ml={2}>{element.name}</Typography>
+                        {loading ? <CircularProgress color="secondary"/> : null}
                       </Grid>
                     );
                   })
