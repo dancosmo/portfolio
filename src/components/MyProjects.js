@@ -1,43 +1,47 @@
-import { useEffect, useState } from "react";
-import { useTheme } from "@mui/material";
+import { useEffect, useState } from 'react';
+import { useTheme } from '@mui/material';
 
-import { Grid, Typography, Slide } from "@mui/material";
-import Project from "./Project";
-import watchatImage from "../images/watchat-preview.PNG";
-import rpsImage from "../images/RPS-preview.PNG";
-import postyImage from "../images/posty-preview.PNG";
-import reactBadge from "../images/react.svg";
-import jsBadge from "../images/javascript.svg";
-import firebaseBadge from "../images/firebase.svg";
-import bootstrapBadge from "../images/Bootstrap.svg";
-import routerBadge from "../images/react-router.svg";
-import materialBadge from "../images/material.svg";
-import mongoBadge from "../images/mongodb.svg";
-import nodeBadge from "../images/node.svg";
-import reduxBadge from "../images/redux.svg";
-import herokuBadge from "../images/heroku.svg";
-import netlifybadge from "../images/netlify.svg";
+import { Grid, Typography, Slide } from '@mui/material';
+import Project from './Project';
+import watchatImage from '../images/watchat-preview.PNG';
+import rpsImage from '../images/RPS-preview.PNG';
+import postyImage from '../images/posty-preview.PNG';
+import reactBadge from '../images/react.svg';
+import jsBadge from '../images/javascript.svg';
+import firebaseBadge from '../images/firebase.svg';
+import bootstrapBadge from '../images/Bootstrap.svg';
+import routerBadge from '../images/react-router.svg';
+import materialBadge from '../images/material.svg';
+import mongoBadge from '../images/mongodb.svg';
+import nodeBadge from '../images/node.svg';
+import reduxBadge from '../images/redux.svg';
+import herokuBadge from '../images/heroku.svg';
+import netlifybadge from '../images/netlify.svg';
 
 const contentEnglish = {
-  title:`My Projects`,
-  watchatTitle: "Watchat",
-  watchatContent: "React app to for chatting, watching videos and share the video.",
+  title: `My Projects`,
+  watchatTitle: 'Watchat',
+  watchatContent:
+    'React app to for chatting, watching videos and share the video.',
   rpsTitle: `Rock, Paper, Scissors`,
-  rpsContent: "Simple Rock Paper Scissors game with multiplayer mode for 2 players and spectator.",
+  rpsContent:
+    'Simple Rock Paper Scissors game with multiplayer mode for 2 players and spectator.',
   postyTitle: `Posty`,
-  postyContent: "Posty is for sharing experiences. You can also like, edit or delete them!.",
-
+  postyContent:
+    'Posty is for sharing experiences. You can also like, edit or delete them!.',
 };
 
 const contentSpanish = {
-  title:`Mis Proyectos`,
-  watchatTitle: "Watchat",
-  watchatContent: "Aplicación React para chatear, ver videos y compartir el video.",
+  title: `Mis Proyectos`,
+  watchatTitle: 'Watchat',
+  watchatContent:
+    'Aplicación React para chatear, ver videos y compartir el video.',
   rpsTitle: `Piedra, Papel, Tijeras!`,
-  rpsContent: "El conocido juego con multiplayer para 2 jugadores y espectador.",
+  rpsContent:
+    'El conocido juego con multiplayer para 2 jugadores y espectador.',
   postyTitle: `Posty`,
-  postyContent: "Es una app para compartir experiencias. Tiene funciones de ¨Like¨, editar y borrar.",
-
+  postyContent:
+    'Es una app para compartir experiencias. Tiene funciones de ¨Like¨, editar y borrar.',
 };
 
 const MyProjects = () => {
@@ -49,8 +53,9 @@ const MyProjects = () => {
   useEffect(() => {
     setChecked(true);
 
-    language === true ? setContent(contentEnglish) : setContent(contentSpanish);
-
+    language === true
+      ? setContent(contentEnglish)
+      : setContent(contentSpanish);
   }, [language]);
 
   const badges = {
@@ -62,7 +67,13 @@ const MyProjects = () => {
       firebaseBadge,
       netlifybadge,
     ],
-    rps: [jsBadge, reactBadge, routerBadge, firebaseBadge, netlifybadge],
+    rps: [
+      jsBadge,
+      reactBadge,
+      routerBadge,
+      firebaseBadge,
+      netlifybadge,
+    ],
     posty: [
       jsBadge,
       reactBadge,

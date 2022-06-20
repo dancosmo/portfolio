@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useTheme, CircularProgress } from "@mui/material";
+import { useEffect, useState } from 'react';
+import { useTheme, CircularProgress } from '@mui/material';
 import {
   Grid,
   Typography,
@@ -7,38 +7,39 @@ import {
   Container,
   Paper,
   Slide,
-} from "@mui/material";
-import profile from "../images/miniature-removebg-preview.png";
-import handWave from "../images/wave-hello.gif";
-
-
+} from '@mui/material';
+import profile from '../images/miniature-removebg-preview.png';
+import handWave from '../images/wave-hello.gif';
 
 const contentEnglish = {
-  greeting:`Hi there!`,
+  greeting: `Hi there!`,
   aboutme: `Mechatronics Engineer that has great passion for coding and technology. I made my first steps with Visual Basic and Assembly, loading code into Microcontrollers using Pic Programmers. Later I started with web software development and have been learning more ever since.`,
   checkvideo: `Check  out my 30 seconds presentation video`,
-  videoLink: "https://www.youtube.com/embed/jAHsgmppgQ4",
-}
+  videoLink: 'https://www.youtube.com/embed/jAHsgmppgQ4',
+};
 
 const contentSpanish = {
-  greeting:`Hey hola!`,
+  greeting: `Hey hola!`,
   aboutme: `Ingeniero en Mecatrónica con gran pasión por el código y la tecnología. Di mis primeros pasos con Visual Basic y Ensamblador, cargando código a microcontroladores con programadores PIC. Luego empecé con el desarrallo web y desde entonces me he enfocado en este.`,
   checkvideo: `Mira mi presentación de 30 segundos`,
-  videoLink: "https://www.youtube.com/embed/EqgOa1AvmDE"
-}
+  videoLink: 'https://www.youtube.com/embed/EqgOa1AvmDE',
+};
 
 const AboutMe = () => {
   const theme = useTheme();
-  let language = theme.language; 
+  let language = theme.language;
   const [checked, setChecked] = useState(false);
   const [aboutMe, setAboutMe] = useState(contentEnglish);
   const [loading, setLoading] = useState(true);
-  
-  const loadingComplete = loading => loading ? setLoading(false) : null;
-  
+
+  const loadingComplete = (loading) =>
+    loading ? setLoading(false) : null;
+
   useEffect(() => {
     setChecked(true);
-    language === true ? setAboutMe(contentEnglish) : setAboutMe(contentSpanish);
+    language === true
+      ? setAboutMe(contentEnglish)
+      : setAboutMe(contentSpanish);
   }, [language]);
 
   return (
@@ -56,14 +57,14 @@ const AboutMe = () => {
               alt="profile-picture"
               onLoad={loadingComplete}
             ></Avatar>
-             {loading ? <CircularProgress color="secondary"/> : null}
+            {loading ? <CircularProgress color="secondary" /> : null}
           </Container>
         </Grid>
         <Grid item xs={9}>
           <Paper
             sx={{
               backgroundColor: (theme) =>
-                theme.palette.type === "dark"
+                theme.palette.type === 'dark'
                   ? theme.palette.grey[900]
                   : theme.palette.grey[100],
               px: 2,
@@ -73,17 +74,23 @@ const AboutMe = () => {
             color="primary"
           >
             <Typography color="white" component="h1" variant="h4">
-              {aboutMe.greeting} <img width="30px" src={handWave} alt="hand-wave"></img>
+              {aboutMe.greeting}{' '}
+              <img width="30px" src={handWave} alt="hand-wave"></img>
             </Typography>
             <Typography
-              sx={{ textAlign: "center" }}
+              sx={{ textAlign: 'center' }}
               color="secondary"
               component="h1"
               variant="h4"
             >
               {}
             </Typography>
-            <Typography sx={{textAlign:"justify"}} color="white" variant="h5" mt={2}>
+            <Typography
+              sx={{ textAlign: 'justify' }}
+              color="white"
+              variant="h5"
+              mt={2}
+            >
               {aboutMe.aboutme}
             </Typography>
           </Paper>
@@ -91,7 +98,7 @@ const AboutMe = () => {
 
         <Grid item xs={12} mt={8}>
           <Typography
-            sx={{ textAlign: "center" }}
+            sx={{ textAlign: 'center' }}
             color="white"
             component="h2"
             variant="h4"
@@ -100,15 +107,25 @@ const AboutMe = () => {
           >
             {aboutMe.checkvideo}
           </Typography>
-          <Container sx={{ textAlign: "center", position:"relative", overflow:"hidden", width: "100%", paddingTop:"56.25%", }}>
+          <Container
+            sx={{
+              textAlign: 'center',
+              position: 'relative',
+              overflow: 'hidden',
+              width: '100%',
+              paddingTop: '56.25%',
+            }}
+          >
             <iframe
-              style={{  position: "absolute",
-                top: "0",
-                left: "0",
-                bottom: "0",
-                right: "0",
-                width: "100%",
-                height: "100%",}}
+              style={{
+                position: 'absolute',
+                top: '0',
+                left: '0',
+                bottom: '0',
+                right: '0',
+                width: '100%',
+                height: '100%',
+              }}
               src={aboutMe.videoLink}
               title="YouTube video player"
               frameBorder="0"
@@ -117,7 +134,6 @@ const AboutMe = () => {
             ></iframe>
           </Container>
         </Grid>
-
       </Grid>
     </Slide>
   );

@@ -1,12 +1,10 @@
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import { useNavigate } from "react-router-dom";
-
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import { useNavigate } from 'react-router-dom';
 
 const ListItem = ({ InfoIcon, text, color, path }) => {
-  
-const navigate = useNavigate();
+  const navigate = useNavigate();
 
   return (
     <ListItemButton onClick={() => navigate(`${path}`)}>

@@ -1,20 +1,20 @@
-import { useState, useEffect } from "react";
-import { useTheme } from "@mui/material";
-import ListItem from "./ListItem";
-import InfoIcon from "@mui/icons-material/Info";
-import ArticleIcon from "@mui/icons-material/Article";
-import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import { useState, useEffect } from 'react';
+import { useTheme } from '@mui/material';
+import ListItem from './ListItem';
+import InfoIcon from '@mui/icons-material/Info';
+import ArticleIcon from '@mui/icons-material/Article';
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 
 const optionsEnglish = {
-  aboutme:`About Me`,
+  aboutme: `About Me`,
   projects: `My Projects`,
-  resume:`Skills`
-}
+  resume: `Skills`,
+};
 const optionsSpanish = {
-  aboutme:`Sobre Mí`,
+  aboutme: `Sobre Mí`,
   projects: `Mis Proyectos`,
-  resume:`Habilidades`
-}
+  resume: `Habilidades`,
+};
 
 const SideBar = () => {
   const theme = useTheme();
@@ -22,15 +22,22 @@ const SideBar = () => {
 
   const [content, setContent] = useState(optionsEnglish);
 
-  useEffect(()=>{
-    language === true ? setContent(optionsEnglish) : setContent(optionsSpanish);
-  },[language])
+  useEffect(() => {
+    language === true
+      ? setContent(optionsEnglish)
+      : setContent(optionsSpanish);
+  }, [language]);
 
-  const color = theme.palette.type === "dark" ? "white" : "black";
+  const color = theme.palette.type === 'dark' ? 'white' : 'black';
 
   return (
     <>
-      <ListItem path="/" InfoIcon={InfoIcon} text={content.aboutme} color={color} />
+      <ListItem
+        path="/"
+        InfoIcon={InfoIcon}
+        text={content.aboutme}
+        color={color}
+      />
       <ListItem
         path="/projects"
         InfoIcon={ArticleIcon}

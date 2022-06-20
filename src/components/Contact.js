@@ -1,7 +1,10 @@
-import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import {
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from '@mui/material';
 
 const Contact = ({ img, text, link, alertText, behavior }) => {
-
   const copy = async () => {
     const copyLink = link;
     await navigator.clipboard.writeText(copyLink);
@@ -9,11 +12,11 @@ const Contact = ({ img, text, link, alertText, behavior }) => {
   };
 
   const redirect = () => {
-      window.open(`${link}`, '_blank');
-  }
+    window.open(`${link}`, '_blank');
+  };
 
   const behaviorHandler = () => {
-    if (behavior === "redirect") {
+    if (behavior === 'redirect') {
       return (
         <>
           <ListItemButton onClick={() => redirect()}>
@@ -25,22 +28,20 @@ const Contact = ({ img, text, link, alertText, behavior }) => {
         </>
       );
     } else {
-      return(
-      <>
-        <ListItemButton onClick={() => copy()}>
-          <ListItemIcon>
-            <img width="24" src={img} alt="text-preview"></img>
-          </ListItemIcon>
-          <ListItemText primary={text} sx={{ color: `white` }} />
-        </ListItemButton>
-      </>
-      )
+      return (
+        <>
+          <ListItemButton onClick={() => copy()}>
+            <ListItemIcon>
+              <img width="24" src={img} alt="text-preview"></img>
+            </ListItemIcon>
+            <ListItemText primary={text} sx={{ color: `white` }} />
+          </ListItemButton>
+        </>
+      );
     }
   };
 
-  return(
-   behaviorHandler()
-  ) 
+  return behaviorHandler();
 };
 
 export default Contact;

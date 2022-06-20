@@ -1,14 +1,13 @@
-import { Grid, Paper, Typography } from "@mui/material";
-import Contact from "./Contact";
-import gmail from "../images/gmail.svg";
-import discord from "../images/discord.svg";
-import linkedin from "../images/linkedin.svg";
-import skype from "../images/skype.svg";
+import { Grid, Paper, Typography } from '@mui/material';
+import Contact from './Contact';
+import gmail from '../images/gmail.svg';
+import discord from '../images/discord.svg';
+import linkedin from '../images/linkedin.svg';
+import skype from '../images/skype.svg';
 
 const ContacMe = () => {
-
   const text = {
-    title: "Contact Me",
+    title: 'Contact Me',
     content:
       "I'm currently looking for the right opportunity to keep expanding and improving my skills as a programmer in a job, I'm always open to learn any new tecnologies that are required in the situation.",
   };
@@ -32,7 +31,7 @@ const ContacMe = () => {
         <Paper
           sx={{
             backgroundColor: (theme) =>
-              theme.palette.mode === "dark"
+              theme.palette.mode === 'dark'
                 ? theme.palette.grey[100]
                 : theme.palette.grey[900],
             px: 2,
@@ -48,14 +47,11 @@ const ContacMe = () => {
       </Grid>
 
       <Grid alignItems="center" container xs={12} px={2} py={2}>
-
-        <Contact img={gmail} text="Gmail" link=""/>
-        <Contact img={discord} text="Discord" link=""/>
-        <Contact img={linkedin} text="Linkedin" link=""/>
-        <Contact img={skype} text="Skype" link=""/>
-
+        <Contact img={gmail} text="Gmail" link="" />
+        <Contact img={discord} text="Discord" link="" />
+        <Contact img={linkedin} text="Linkedin" link="" />
+        <Contact img={skype} text="Skype" link="" />
       </Grid>
-
     </Grid>
   );
 };
