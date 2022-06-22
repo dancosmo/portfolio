@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import {
-	ListItemButton,
+	ListItem,
 	ListItemIcon,
 	ListItemText,
 	Typography,
@@ -37,6 +37,7 @@ import github from '../images/github.svg';
 
 const mdTheme = createTheme({
 	language: true,
+
 	typography: {
 		fontFamily: [
 			'Source Code Pro',
@@ -210,25 +211,21 @@ function Content() {
 							<Divider sx={{ my: 1, borderColor: 'white' }} />
 						</List>
 						<List>
-							<ListItemButton onClick={() => setOpen(!open)}>
+							<ListItem>
 								<ListItemIcon>
 									<CallIcon sx={{ color: 'white' }} />
 								</ListItemIcon>
 								<ListItemText
-									primary={switchLenguage ? `Contact Me` : `Contacto`}
+									primary={switchLenguage ? 'Contact Me' : 'Contacto'}
 									sx={{ color: `white` }}
 								/>
-							</ListItemButton>
+							</ListItem>
 							<Contact
 								img={gmail}
 								behavior='copy'
 								text='Gmail'
 								link='cosmowebdeveloper@gmail.com'
-								alertText={
-									switchLenguage
-										? `cosmowebdeveloper@gmail.com was copied to the clipboard`
-										: `cosmowebdeveloper@gmail.com se ha copiado al clipboard`
-								}
+								alertText={switchLenguage ? 'Copied' : 'Copiado'}
 							/>
 							<Contact
 								behavior='copy'
@@ -237,8 +234,8 @@ function Content() {
 								link='DC#1495'
 								alertText={
 									switchLenguage
-										? `DC#1495 was copied to the clipboard`
-										: `DC#1495 se ha copiado al clipboard`
+										? 'DC#1495 was copied'
+										: 'Se ha copiado DC#1495'
 								}
 							/>
 							<Contact

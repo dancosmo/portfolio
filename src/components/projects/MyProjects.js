@@ -86,7 +86,7 @@ const MyProjects = () => {
 				columns={{ xs: 4, sm: 8, md: 12 }}
 			>
 				<Grid item xs={12}>
-					<Typography color='white' component='h1' variant='h3'>
+					<Typography color='white' variant='h4'>
 						{content.title}
 					</Typography>
 				</Grid>

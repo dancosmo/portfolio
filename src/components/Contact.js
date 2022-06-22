@@ -1,10 +1,20 @@
-import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { useState } from 'react';
+import {
+	ListItemButton,
+	ListItemIcon,
+	ListItemText,
+	Snackbar,
+} from '@mui/material';
 
 const Contact = ({ img, text, link, alertText, behavior }) => {
+	const [openSnack, setOpenSnack] = useState(false);
+
+	const closeSnack = () => setOpenSnack(false);
+
 	const copy = async () => {
+		setOpenSnack(true);
 		const copyLink = link;
 		await navigator.clipboard.writeText(copyLink);
-		alert(alertText);
 	};
 
 	const redirect = () => {
@@ -32,6 +42,12 @@ const Contact = ({ img, text, link, alertText, behavior }) => {
 						</ListItemIcon>
 						<ListItemText primary={text} sx={{ color: `white` }} />
 					</ListItemButton>
+					<Snackbar
+						open={openSnack}
+						onClose={closeSnack}
+						autoHideDuration={1000}
+						message={alertText}
+					/>
 				</>
 			);
 		}
