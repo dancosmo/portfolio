@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { useTheme, CircularProgress ,
+import {
+	useTheme,
+	CircularProgress,
 	Grid,
 	Typography,
 	Avatar,
@@ -14,7 +16,7 @@ const contentEnglish = {
 	greeting: `Hi there!`,
 	aboutme: `Mechatronics Engineer that has great passion for coding and technology. I made my first steps with Visual Basic and Assembly, loading code into Microcontrollers using Pic Programmers. Later I started with web software development and have been learning more ever since.`,
 	checkvideo: `Check  out my 30 seconds presentation video`,
-	videoLink: 'https://www.youtube.com/embed/jAHsgmppgQ4',
+	videolink: 'https://www.youtube.com/embed/jAHsgmppgQ4',
 };
 
 const contentSpanish = {
@@ -41,14 +43,15 @@ const AboutMe = () => {
 	return (
 		<Slide direction='left' in={checked} mountOnEnter unmountOnExit>
 			<Grid
+				justifyContent='center'
 				container
 				spacing={{ xs: 2, md: 3 }}
 				columns={{ xs: 4, sm: 8, md: 12 }}
 			>
-				<Grid item xs={3}>
+				<Grid item xs={4}>
 					<Container>
 						<Avatar
-							sx={{ width: 250, height: 250 }}
+							sx={{ width: 200, height: 200 }}
 							src={profile}
 							alt='profile-picture'
 							onLoad={loadingComplete}
@@ -56,13 +59,10 @@ const AboutMe = () => {
 						{loading ? <CircularProgress color='secondary' /> : null}
 					</Container>
 				</Grid>
-				<Grid item xs={9}>
+				<Grid item xs={8}>
 					<Paper
 						sx={{
-							backgroundColor: theme =>
-								theme.palette.type === 'dark'
-									? theme.palette.grey[900]
-									: theme.palette.grey[100],
+							backgroundColor: theme.palette.grey[900],
 							px: 2,
 							py: 2,
 						}}
@@ -74,15 +74,7 @@ const AboutMe = () => {
 							<img width='30px' src={handWave} alt='hand-wave'></img>
 						</Typography>
 						<Typography
-							sx={{ textAlign: 'center' }}
-							color='secondary'
-							component='h1'
-							variant='h4'
-						>
-							{}
-						</Typography>
-						<Typography
-							sx={{ textAlign: 'justify' }}
+							sx={{ textAlign: 'left' }}
 							color='white'
 							variant='h5'
 							mt={2}
@@ -96,8 +88,7 @@ const AboutMe = () => {
 					<Typography
 						sx={{ textAlign: 'center' }}
 						color='white'
-						component='h2'
-						variant='h4'
+						variant='h5'
 						mt={2}
 						mb={2}
 					>
@@ -122,7 +113,7 @@ const AboutMe = () => {
 								width: '100%',
 								height: '100%',
 							}}
-							src={aboutMe.videoLink}
+							src={aboutMe.videolink}
 							title='YouTube video player'
 							frameBorder='0'
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'

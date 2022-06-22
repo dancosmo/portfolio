@@ -32,12 +32,7 @@ export default function Pdf({ download }) {
 					py: 2,
 				}}
 			>
-				<Typography
-					color='secondary'
-					component='h1'
-					variant='h4'
-					sx={{ textAlign: 'center' }}
-				>
+				<Typography color='secondary' variant='h5' sx={{ textAlign: 'center' }}>
 					Curriculum Vitae
 				</Typography>
 			</Paper>
@@ -48,7 +43,7 @@ export default function Pdf({ download }) {
 					target='_blank'
 				>
 					<Button variant='text'>
-						<Typography color='secondary' component='h1' variant='h6'>
+						<Typography color='secondary' variant='h6'>
 							{download}
 						</Typography>
 					</Button>

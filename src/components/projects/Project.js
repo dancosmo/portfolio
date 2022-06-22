@@ -13,7 +13,7 @@ const Project = ({ name, description, image, badges, link }) => {
 		description: PropTypes.string,
 		image: PropTypes.string,
 		link: PropTypes.string,
-		badges: PropTypes.object,
+		badges: PropTypes.array,
 	};
 
 	const loadingComplete = loading => (loading ? setLoading(false) : null);
@@ -21,10 +21,10 @@ const Project = ({ name, description, image, badges, link }) => {
 	return (
 		<>
 			<Grid item xs={6}>
-				<Typography color='secondary' component='h1' variant='h4' mb={2}>
+				<Typography color='secondary' variant='h5' mb={2}>
 					{name}
 				</Typography>
-				<Typography color='white' component='h1' variant='h5' mb={4}>
+				<Typography color='white' variant='h5' mb={4}>
 					{description}
 				</Typography>
 				<Container>
@@ -40,7 +40,7 @@ const Project = ({ name, description, image, badges, link }) => {
 					color='secondary'
 					sx={{ float: 'right' }}
 				>
-					<Typography color='secondary' component='h1' variant='h4' mt={2}>
+					<Typography color='secondary' variant='h5' mt={2}>
 						Link <ArrowRightIcon />
 					</Typography>
 				</Link>

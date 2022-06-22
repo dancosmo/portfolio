@@ -3,7 +3,6 @@ import {
 	Grid,
 	Paper,
 	Typography,
-	Container,
 	Slide,
 	CircularProgress,
 	useTheme,
@@ -58,67 +57,59 @@ function Resume() {
 	return (
 		<Slide direction='left' in={checked} mountOnEnter unmountOnExit>
 			<Grid
+				justifyContent='center'
+				alignItems='center'
 				container
+				flexDirection='column'
 				spacing={{ xs: 2, md: 3 }}
 				columns={{ xs: 4, sm: 8, md: 12 }}
 			>
-				<Grid item xs={4}>
+				<Grid item xs={12}>
 					<Paper
 						sx={{
 							backgroundColor: theme.palette.grey[900],
-							px: 2,
 							py: 2,
 						}}
 					>
 						<Typography
 							color='secondary'
-							component='h1'
-							variant='h4'
+							variant='h5'
 							mb={2}
 							sx={{ textAlign: 'center' }}
 						>
 							{content.skills}
 						</Typography>
-						<Container>
-							<Grid container>
-								{badges
-									? badges.map(element => (
-											<Grid
-												container
-												direction='row'
-												alignItems='center'
-												key={element.name}
-												my={1}
-												item
-												xs={12}
-												textAlign='center'
-											>
-												<img
-													width='48px'
-													height='auto'
-													src={element.badge}
-													alt='skill-preview'
-													onLoad={loadingComplete}
-												/>
-												<Typography
-													color='secondary'
-													component='h1'
-													variant='h6'
-													ml={2}
-												>
-													{element.name}
-												</Typography>
-												{loading ? (
-													<CircularProgress color='secondary' />
-												) : null}
-											</Grid>
-									  ))
-									: null}
-							</Grid>
-						</Container>
+
+						<Grid flexDirection='row' container>
+							{badges
+								? badges.map(element => (
+										<Grid
+											item
+											container
+											direction='row'
+											alignItems='center'
+											key={element.name}
+											mx={2}
+											xs='auto'
+										>
+											<img
+												width='24px'
+												height='auto'
+												src={element.badge}
+												alt='skill-preview'
+												onLoad={loadingComplete}
+											/>
+											<Typography color='secondary' variant='h6' ml={2}>
+												{element.name}
+											</Typography>
+											{loading ? <CircularProgress color='secondary' /> : null}
+										</Grid>
+								  ))
+								: null}
+						</Grid>
 					</Paper>
 				</Grid>
-				<Grid item xs={8}>
+				<Grid item xs={12}>
 					<Pdf download={content.download} />
 				</Grid>
 			</Grid>
