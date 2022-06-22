@@ -1,21 +1,21 @@
 import { useEffect, useState } from 'react';
-import { useTheme , Grid, Typography, Slide } from '@mui/material';
+import { useTheme, Grid, Typography, Slide } from '@mui/material';
 
 import Project from './Project';
-import watchatImage from '../images/watchat-preview.PNG';
-import rpsImage from '../images/RPS-preview.PNG';
-import postyImage from '../images/posty-preview.PNG';
-import reactBadge from '../images/react.svg';
-import jsBadge from '../images/javascript.svg';
-import firebaseBadge from '../images/firebase.svg';
-import bootstrapBadge from '../images/Bootstrap.svg';
-import routerBadge from '../images/react-router.svg';
-import materialBadge from '../images/material.svg';
-import mongoBadge from '../images/mongodb.svg';
-import nodeBadge from '../images/node.svg';
-import reduxBadge from '../images/redux.svg';
-import herokuBadge from '../images/heroku.svg';
-import netlifybadge from '../images/netlify.svg';
+import watchatImage from '../../images/watchat-preview.PNG';
+import rpsImage from '../../images/RPS-preview.PNG';
+import postyImage from '../../images/posty-preview.PNG';
+import reactBadge from '../../images/react.svg';
+import jsBadge from '../../images/javascript.svg';
+import firebaseBadge from '../../images/firebase.svg';
+import bootstrapBadge from '../../images/Bootstrap.svg';
+import routerBadge from '../../images/react-router.svg';
+import materialBadge from '../../images/material.svg';
+import mongoBadge from '../../images/mongodb.svg';
+import nodeBadge from '../../images/node.svg';
+import reduxBadge from '../../images/redux.svg';
+import herokuBadge from '../../images/heroku.svg';
+import netlifybadge from '../../images/netlify.svg';
 
 const contentEnglish = {
 	title: `My Projects`,

@@ -24,7 +24,7 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import background from '../images/background-1.jpg';
 import SideBar from './SideBar';
 import AboutMe from './AboutMe';
-import MyProjects from './MyProjects';
+import MyProjects from './projects/MyProjects';
 import Resume from './Resume';
 import Contact from './Contact';
 
