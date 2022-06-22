@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const ListItem = ({ InfoIcon, text, color, path }) => {
 	ListItem.propTypes = {
-		InfoIcon: PropTypes.string,
+		InfoIcon: PropTypes.object,
 		text: PropTypes.string,
 		color: PropTypes.string,
 		path: PropTypes.string,
