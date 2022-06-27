@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useTheme, Grid, Typography, Slide } from '@mui/material';
+import { useTheme, Grid, Typography, Grow } from '@mui/material';
 
 import Project from './Project';
+import hackerImage from '../../images/hacker-news-preview.PNG';
 import watchatImage from '../../images/watchat-preview.PNG';
 import rpsImage from '../../images/RPS-preview.PNG';
 import postyImage from '../../images/posty-preview.PNG';
@@ -16,31 +17,38 @@ import nodeBadge from '../../images/node.svg';
 import reduxBadge from '../../images/redux.svg';
 import herokuBadge from '../../images/heroku.svg';
 import netlifybadge from '../../images/netlify.svg';
+import cssbadge from '../../images/css.svg';
 
 const contentEnglish = {
-	title: `My Projects`,
+	title: 'My Projects',
 	watchatTitle: 'Watchat',
 	watchatContent:
 		'React app to for chatting, watching videos and share the video.',
-	rpsTitle: `Rock, Paper, Scissors`,
+	rpsTitle: 'Rock, Paper, Scissors',
 	rpsContent:
 		'Simple Rock Paper Scissors game with multiplayer mode for 2 players and spectator.',
-	postyTitle: `Posty`,
+	postyTitle: 'Posty',
 	postyContent:
 		'Posty is for sharing experiences. You can also like, edit or delete them!.',
+	hackerNewsTitle: 'Hacker News',
+	hackerNewsContent:
+		'News Search about Angular, React and Vue with infinite scrolling and favorites page.',
 };
 
 const contentSpanish = {
-	title: `Mis Proyectos`,
+	title: 'Mis Proyectos',
 	watchatTitle: 'Watchat',
 	watchatContent:
 		'Aplicación React para chatear, ver videos y compartir el video.',
-	rpsTitle: `Piedra, Papel, Tijeras!`,
+	rpsTitle: 'Piedra, Papel, Tijeras!',
 	rpsContent:
 		'El conocido juego con multiplayer para 2 jugadores y espectador.',
-	postyTitle: `Posty`,
+	postyTitle: 'Posty',
 	postyContent:
 		'Es una app para compartir experiencias. Tiene funciones de ¨Like¨, editar y borrar.',
+	hackerNewsTitle: 'Hacker Noticias',
+	hackerNewsContent:
+		'Busqueda de noticias acerca de Angular, React y Vue con scroll infinito y página de favoritos.',
 };
 
 const MyProjects = () => {
@@ -76,10 +84,11 @@ const MyProjects = () => {
 			netlifybadge,
 			herokuBadge,
 		],
+		hacker: [jsBadge, reactBadge, routerBadge, cssbadge, netlifybadge],
 	};
 
 	return (
-		<Slide direction='left' in={checked} mountOnEnter unmountOnExit>
+		<Grow in={checked} mountOnEnter unmountOnExit>
 			<Grid
 				container
 				spacing={{ xs: 2, md: 3 }}
@@ -91,18 +100,18 @@ const MyProjects = () => {
 					</Typography>
 				</Grid>
 				<Project
+					name={content.hackerNewsTitle}
+					description={content.hackerNewsContent}
+					image={hackerImage}
+					badges={badges.hacker}
+					link='https://hacker-news-daniel-perez.netlify.app/'
+				/>
+				<Project
 					name={content.watchatTitle}
 					description={content.watchatContent}
 					image={watchatImage}
 					badges={badges.watchat}
 					link='https://watchat-cosmo.netlify.app/'
-				/>
-				<Project
-					name={content.rpsTitle}
-					description={content.rpsContent}
-					image={rpsImage}
-					badges={badges.rps}
-					link='https://rock-paper-scissors-cosmo.netlify.app/'
 				/>
 				<Project
 					name={content.postyTitle}
@@ -111,8 +120,15 @@ const MyProjects = () => {
 					badges={badges.posty}
 					link='https://posty-cosmo.netlify.app/'
 				/>
+				<Project
+					name={content.rpsTitle}
+					description={content.rpsContent}
+					image={rpsImage}
+					badges={badges.rps}
+					link='https://rock-paper-scissors-cosmo.netlify.app/'
+				/>
 			</Grid>
-		</Slide>
+		</Grow>
 	);
 };
 

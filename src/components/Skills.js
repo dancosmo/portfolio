@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react';
-import {
-	Grid,
-	Paper,
-	Typography,
-	Slide,
-	CircularProgress,
-	useTheme,
-} from '@mui/material';
+import { Grid, Paper, Grow, CircularProgress, useTheme } from '@mui/material';
+import { StyledTypography } from './Home';
 import Pdf from './pdfs/Pdf';
 import reactBadge from '../images/skills/icons8-react.svg';
 import jsBadge from '../images/skills/icons8-javascript.svg';
@@ -25,7 +19,7 @@ const contentSpanish = {
 	download: 'Descargar',
 };
 
-function Resume() {
+function Skills() {
 	const theme = useTheme();
 	const { language } = theme;
 	const [checked, setChecked] = useState(false);
@@ -55,7 +49,7 @@ function Resume() {
 	];
 
 	return (
-		<Slide direction='left' in={checked} mountOnEnter unmountOnExit>
+		<Grow in={checked} mountOnEnter unmountOnExit>
 			<Grid
 				justifyContent='center'
 				alignItems='center'
@@ -71,14 +65,14 @@ function Resume() {
 							py: 2,
 						}}
 					>
-						<Typography
+						<StyledTypography
 							color='secondary'
 							variant='h5'
 							mb={2}
 							sx={{ textAlign: 'center' }}
 						>
 							{content.skills}
-						</Typography>
+						</StyledTypography>
 
 						<Grid flexDirection='row' container>
 							{badges
@@ -99,9 +93,9 @@ function Resume() {
 												alt='skill-preview'
 												onLoad={loadingComplete}
 											/>
-											<Typography color='secondary' variant='h6' ml={2}>
+											<StyledTypography color='secondary' variant='h6' ml={2}>
 												{element.name}
-											</Typography>
+											</StyledTypography>
 											{loading ? <CircularProgress color='secondary' /> : null}
 										</Grid>
 								  ))
@@ -113,8 +107,8 @@ function Resume() {
 					<Pdf download={content.download} />
 				</Grid>
 			</Grid>
-		</Slide>
+		</Grow>
 	);
 }
 
-export default Resume;
+export default Skills;

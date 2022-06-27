@@ -4,7 +4,6 @@ import {
 	ListItem,
 	ListItemIcon,
 	ListItemText,
-	Typography,
 	List,
 	Box,
 	Toolbar,
@@ -18,14 +17,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FallingStars from './falling-stars/FallingStars';
 import MuiDrawer from '@mui/material/Drawer';
 import MuiAppBar from '@mui/material/AppBar';
+import MuiTypography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
-import background from '../images/background-1.jpg';
 import SideBar from './SideBar';
 import AboutMe from './AboutMe';
 import MyProjects from './projects/MyProjects';
-import Resume from './Resume';
+import Skills from './Skills';
 import Contact from './Contact';
 
 import CallIcon from '@mui/icons-material/Call';
@@ -37,7 +36,6 @@ import github from '../images/github.svg';
 
 const mdTheme = createTheme({
 	language: true,
-
 	typography: {
 		fontFamily: [
 			'Source Code Pro',
@@ -47,7 +45,9 @@ const mdTheme = createTheme({
 		].join(','),
 	},
 	palette: {
-		type: 'dark',
+		background: {
+			default: '#nnn',
+		},
 		primary: {
 			main: '#591bbf',
 		},
@@ -59,6 +59,13 @@ const mdTheme = createTheme({
 		},
 	},
 });
+
+export const StyledTypography = styled(MuiTypography)(({ theme }) => ({
+	[theme.breakpoints.down('md')]: {
+		textAlign: 'center',
+		fontSize: '1rem',
+	},
+}));
 
 const drawerWidth = 240;
 
@@ -85,11 +92,7 @@ const Drawer = styled(MuiDrawer, {
 })(({ theme, open }) => ({
 	'& .MuiDrawer-paper': {
 		borderColor: 'white',
-		backgroundColor: `${
-			mdTheme.palette.type === 'dark'
-				? mdTheme.palette.grey[900]
-				: mdTheme.palette.grey[100]
-		}`,
+		backgroundColor: mdTheme.palette.grey[900],
 		position: 'relative',
 		whiteSpace: 'nowrap',
 		width: drawerWidth,
@@ -153,7 +156,7 @@ function Content() {
 									}}
 								/>
 							</IconButton>
-							<Typography
+							<StyledTypography
 								component='h1'
 								variant='h4'
 								color='inherit'
@@ -161,7 +164,7 @@ function Content() {
 								sx={{ flexGrow: 1 }}
 							>
 								{`<Daniel Perez/>`}
-							</Typography>
+							</StyledTypography>
 
 							<Button
 								variant='outlined'
@@ -169,23 +172,23 @@ function Content() {
 								color='secondary'
 								aria-label='change to english'
 							>
-								<Typography>
+								<StyledTypography>
 									{switchLenguage ? 'ESPAÑOL' : 'ENGLISH'}
-								</Typography>
+								</StyledTypography>
 							</Button>
 						</Toolbar>
 					</AppBar>
-					<Drawer variant='permanent' open={open}>
+					<Drawer
+						sx={{ backgroundColor: mdTheme.palette.grey[900] }}
+						variant='permanent'
+						open={open}
+					>
 						<Toolbar
 							sx={{
 								display: 'flex',
 								alignItems: 'center',
 								justifyContent: 'flex-end',
 								px: [1],
-								backgroundColor: theme =>
-									theme.palette.type === 'dark'
-										? theme.palette.grey[900]
-										: theme.palette.grey[100],
 							}}
 						>
 							<IconButton onClick={toggleDrawer}>
@@ -198,15 +201,7 @@ function Content() {
 						</Toolbar>
 						<Divider sx={{ borderColor: 'white' }} />
 
-						<List
-							component='nav'
-							sx={{
-								backgroundColor: theme =>
-									theme.palette.type === 'dark'
-										? theme.palette.grey[900]
-										: theme.palette.grey[100],
-							}}
-						>
+						<List component='nav'>
 							<SideBar theme={mdTheme} />
 							<Divider sx={{ my: 1, borderColor: 'white' }} />
 						</List>
@@ -225,7 +220,11 @@ function Content() {
 								behavior='copy'
 								text='Gmail'
 								link='cosmowebdeveloper@gmail.com'
-								alertText={switchLenguage ? 'Copied' : 'Copiado'}
+								alertText={
+									switchLenguage
+										? 'Copied to clipboard'
+										: 'Copiado al portapapeles'
+								}
 							/>
 							<Contact
 								behavior='copy'
@@ -234,8 +233,8 @@ function Content() {
 								link='DC#1495'
 								alertText={
 									switchLenguage
-										? 'DC#1495 was copied'
-										: 'Se ha copiado DC#1495'
+										? 'Copied to clipboard'
+										: 'Copiado al portapapeles'
 								}
 							/>
 							<Contact
@@ -261,10 +260,6 @@ function Content() {
 					<Box
 						component='main'
 						sx={{
-							backgroundColor: theme =>
-								theme.palette.mode === 'dark'
-									? theme.palette.grey[100]
-									: theme.palette.grey[900],
 							flexGrow: 1,
 							height: '100vh',
 							overflow: 'auto',
@@ -275,14 +270,12 @@ function Content() {
 							maxWidth='auto'
 							sx={{
 								pt: 4,
-								backgroundImage: `url(${background})`,
-								backgroundSize: 'cover',
 							}}
 						>
 							<Routes>
 								<Route path='/' element={<AboutMe />}></Route>
 								<Route path='/projects' element={<MyProjects />}></Route>
-								<Route path='/resume' element={<Resume />}></Route>
+								<Route path='/skills' element={<Skills />}></Route>
 							</Routes>
 						</Container>
 					</Box>
