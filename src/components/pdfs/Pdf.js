@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import PropTypes from 'prop-types';
-import { Button, Link, Paper, Typography } from '@mui/material';
+import { Button, Link, Paper } from '@mui/material';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import pdf from '../../pdf/CV.pdf';
-
+import { StyledTypography } from '../Home';
 import './pdf.css';
 
 export default function Pdf({ download }) {
@@ -32,9 +32,13 @@ export default function Pdf({ download }) {
 					py: 2,
 				}}
 			>
-				<Typography color='secondary' variant='h5' sx={{ textAlign: 'center' }}>
+				<StyledTypography
+					color='secondary'
+					variant='h5'
+					sx={{ textAlign: 'center' }}
+				>
 					Curriculum Vitae
-				</Typography>
+				</StyledTypography>
 			</Paper>
 
 			<div className='Example__container'>
@@ -43,9 +47,9 @@ export default function Pdf({ download }) {
 					target='_blank'
 				>
 					<Button variant='text'>
-						<Typography color='secondary' variant='h6'>
+						<StyledTypography color='secondary' variant='h6'>
 							{download}
-						</Typography>
+						</StyledTypography>
 					</Button>
 				</Link>
 				<div className='Example__container__document'>

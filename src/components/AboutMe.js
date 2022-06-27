@@ -3,14 +3,14 @@ import {
 	useTheme,
 	CircularProgress,
 	Grid,
-	Typography,
 	Avatar,
-	Container,
 	Paper,
-	Slide,
+	Grow,
+	Box,
 } from '@mui/material';
 import profile from '../images/miniature-removebg-preview.png';
 import handWave from '../images/wave-hello.gif';
+import { StyledTypography } from './Home';
 
 const contentEnglish = {
 	greeting: `Hi there!`,
@@ -41,23 +41,25 @@ const AboutMe = () => {
 	}, [language]);
 
 	return (
-		<Slide direction='left' in={checked} mountOnEnter unmountOnExit>
+		<Grow in={checked} mountOnEnter unmountOnExit>
 			<Grid
 				justifyContent='center'
 				container
 				spacing={{ xs: 2, md: 3 }}
 				columns={{ xs: 4, sm: 8, md: 12 }}
 			>
-				<Grid item xs={4}>
-					<Container>
-						<Avatar
-							sx={{ width: 200, height: 200 }}
-							src={profile}
-							alt='profile-picture'
-							onLoad={loadingComplete}
-						></Avatar>
-						{loading ? <CircularProgress color='secondary' /> : null}
-					</Container>
+				<Grid
+					item
+					xs={4}
+					sx={{ display: 'flex', justifyContent: 'space-around' }}
+				>
+					<Avatar
+						sx={{ width: 200, height: 200 }}
+						src={profile}
+						alt='profile-picture'
+						onLoad={loadingComplete}
+					></Avatar>
+					{loading ? <CircularProgress color='secondary' /> : null}
 				</Grid>
 				<Grid item xs={8}>
 					<Paper
@@ -69,23 +71,23 @@ const AboutMe = () => {
 						variant='outlined'
 						color='primary'
 					>
-						<Typography color='white' component='h1' variant='h4'>
+						<StyledTypography color='white' component='h1' variant='h4'>
 							{aboutMe.greeting}{' '}
 							<img width='30px' src={handWave} alt='hand-wave'></img>
-						</Typography>
-						<Typography
+						</StyledTypography>
+						<StyledTypography
 							sx={{ textAlign: 'left' }}
 							color='white'
 							variant='h5'
 							mt={2}
 						>
 							{aboutMe.aboutme}
-						</Typography>
+						</StyledTypography>
 					</Paper>
 				</Grid>
 
 				<Grid item xs={12} mt={8}>
-					<Typography
+					<StyledTypography
 						sx={{ textAlign: 'center' }}
 						color='white'
 						variant='h5'
@@ -93,10 +95,9 @@ const AboutMe = () => {
 						mb={2}
 					>
 						{aboutMe.checkvideo}
-					</Typography>
-					<Container
+					</StyledTypography>
+					<Box
 						sx={{
-							textAlign: 'center',
 							position: 'relative',
 							overflow: 'hidden',
 							width: '100%',
@@ -106,12 +107,14 @@ const AboutMe = () => {
 						<iframe
 							style={{
 								position: 'absolute',
+								marginRight: 'auto',
+								marginLeft: 'auto',
 								top: '0',
 								left: '0',
 								bottom: '0',
 								right: '0',
-								width: '100%',
-								height: '100%',
+								width: '75%',
+								height: '75%',
 							}}
 							src={aboutMe.videolink}
 							title='YouTube video player'
@@ -119,10 +122,10 @@ const AboutMe = () => {
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
 							allowFullScreen='on'
 						></iframe>
-					</Container>
+					</Box>
 				</Grid>
 			</Grid>
-		</Slide>
+		</Grow>
 	);
 };
 

@@ -30,27 +30,25 @@ function SideBar() {
 		}
 	}, [language]);
 
-	const color = theme.palette.type === 'dark' ? 'white' : 'black';
-
 	return (
 		<>
 			<ListItem
 				path='/'
 				InfoIcon={InfoIcon}
 				text={content.aboutme}
-				color={color}
+				color='white'
 			/>
 			<ListItem
 				path='/projects'
 				InfoIcon={ArticleIcon}
 				text={content.projects}
-				color={color}
+				color='white'
 			/>
 			<ListItem
-				path='/resume'
+				path='/skills'
 				InfoIcon={AssignmentIndIcon}
 				text={content.resume}
-				color={color}
+				color='white'
 			/>
 		</>
 	);

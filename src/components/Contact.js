@@ -4,6 +4,7 @@ import {
 	ListItemIcon,
 	ListItemText,
 	Snackbar,
+	Alert,
 } from '@mui/material';
 
 const Contact = ({ img, text, link, alertText, behavior }) => {
@@ -45,9 +46,12 @@ const Contact = ({ img, text, link, alertText, behavior }) => {
 					<Snackbar
 						open={openSnack}
 						onClose={closeSnack}
-						autoHideDuration={1000}
-						message={alertText}
-					/>
+						autoHideDuration={8000}
+					>
+						<Alert onClose={closeSnack} severity='success'>
+							{alertText}
+						</Alert>
+					</Snackbar>
 				</>
 			);
 		}
