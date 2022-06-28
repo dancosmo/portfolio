@@ -13,16 +13,18 @@ import handWave from '../images/wave-hello.gif';
 import { StyledTypography } from './Home';
 
 const contentEnglish = {
-	greeting: `Hi there!`,
-	aboutme: `Mechatronics Engineer that has great passion for coding and technology. I made my first steps with Visual Basic and Assembly, loading code into Microcontrollers using Pic Programmers. Later I started with web software development and have been learning more ever since.`,
-	checkvideo: `Check  out my 30 seconds presentation video`,
-	videolink: 'https://www.youtube.com/embed/jAHsgmppgQ4',
+	greeting: 'Hi there!',
+	aboutme:
+		'Mechatronics Engineer that has great passion for coding and technology. I made my first steps with Visual Basic and Assembly, loading code into Microcontrollers using Pic Programmers. Later I started with web software development and have been learning more ever since.',
+	checkvideo: 'Check  out my 30 seconds presentation video',
+	videoLink: 'https://www.youtube.com/embed/jAHsgmppgQ4',
 };
 
 const contentSpanish = {
-	greeting: `Hey hola!`,
-	aboutme: `Ingeniero en Mecatrónica con gran pasión por el código y la tecnología. Di mis primeros pasos con Visual Basic y Ensamblador, cargando código a microcontroladores con programadores PIC. Luego empecé con el desarrallo web y desde entonces me he enfocado en este.`,
-	checkvideo: `Mira mi presentación de 30 segundos`,
+	greeting: 'Hey hola!',
+	aboutme:
+		'Ingeniero en Mecatrónica con gran pasión por el código y la tecnología. Di mis primeros pasos con Visual Basic y Ensamblador, cargando código a microcontroladores con programadores PIC. Luego empecé con el desarrallo web y desde entonces me he enfocado en este.',
+	checkvideo: 'Mira mi presentación de 30 segundos',
 	videoLink: 'https://www.youtube.com/embed/EqgOa1AvmDE',
 };
 
@@ -116,11 +118,12 @@ const AboutMe = () => {
 								width: '75%',
 								height: '75%',
 							}}
-							src={aboutMe.videolink}
+							src={aboutMe.videoLink}
 							title='YouTube video player'
 							frameBorder='0'
 							allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-							allowFullScreen='on'
+							allowFullScreen='off'
+							alt='my-video'
 						></iframe>
 					</Box>
 				</Grid>
