@@ -46,7 +46,7 @@
 }
 
 .Example__container__document .react-pdf__Page canvas {
-	width: 100%;
+	display: none;
 	height: auto !important;
 }
 
