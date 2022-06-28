@@ -12,11 +12,11 @@ import reduxBadge from '../images/skills/icons8-redux.svg';
 
 const contentEnglish = {
 	skills: 'Main Skills',
-	download: 'Download',
+	download: 'Open',
 };
 const contentSpanish = {
 	skills: 'Habilidades',
-	download: 'Descargar',
+	download: 'Abrir',
 };
 
 function Skills() {
