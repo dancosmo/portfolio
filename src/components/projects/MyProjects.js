@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { useTheme, Grid, Typography, Grow } from '@mui/material';
 
 import Project from './Project';
-import hackerImage from '../../images/hacker-news-preview.PNG';
 import watchatImage from '../../images/watchat-preview.PNG';
 import rpsImage from '../../images/RPS-preview.PNG';
 import postyImage from '../../images/posty-preview.PNG';
@@ -99,13 +98,6 @@ const MyProjects = () => {
 						{content.title}
 					</Typography>
 				</Grid>
-				<Project
-					name={content.hackerNewsTitle}
-					description={content.hackerNewsContent}
-					image={hackerImage}
-					badges={badges.hacker}
-					link='https://hacker-news-daniel-perez.netlify.app/'
-				/>
 				<Project
 					name={content.watchatTitle}
 					description={content.watchatContent}
