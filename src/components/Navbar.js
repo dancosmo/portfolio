@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from '@mui/material';
 import InfoIcon from '@mui/icons-material/Info';
-import ArticleIcon from '@mui/icons-material/Article';
+import HandymanIcon from '@mui/icons-material/Handyman';
 import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
 import ListItem from './ListItem';
 
@@ -40,7 +40,7 @@ function SideBar() {
 			/>
 			<ListItem
 				path='/projects'
-				InfoIcon={ArticleIcon}
+				InfoIcon={HandymanIcon}
 				text={content.projects}
 				color='white'
 			/>

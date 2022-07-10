@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useTheme, Grid, Typography, Grow } from '@mui/material';
+import { useTheme, Grid, Grow } from '@mui/material';
+import { StyledTypography } from '../Home';
 
 import Project from './Project';
 import watchatImage from '../../images/watchat-preview.PNG';
@@ -90,13 +91,14 @@ const MyProjects = () => {
 		<Grow in={checked} mountOnEnter unmountOnExit>
 			<Grid
 				container
+				justifyContent='center'
 				spacing={{ xs: 2, md: 3 }}
 				columns={{ xs: 4, sm: 8, md: 12 }}
 			>
-				<Grid item xs={12}>
-					<Typography color='white' variant='h4'>
+				<Grid item xs={10}>
+					<StyledTypography color='white' variant='h4'>
 						{content.title}
-					</Typography>
+					</StyledTypography>
 				</Grid>
 				<Project
 					name={content.watchatTitle}

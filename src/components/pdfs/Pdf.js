@@ -30,7 +30,6 @@ export default function Pdf({ download }) {
 							: theme.palette.grey[900],
 					px: 2,
 					py: 2,
-					margin: '25px',
 				}}
 			>
 				<StyledTypography

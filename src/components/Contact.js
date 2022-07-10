@@ -6,8 +6,17 @@ import {
 	Snackbar,
 	Alert,
 } from '@mui/material';
+import PropTypes from 'prop-types';
 
 const Contact = ({ img, text, link, alertText, behavior }) => {
+	Contact.propTypes = {
+		img: PropTypes.string,
+		text: PropTypes.string,
+		link: PropTypes.string,
+		alertText: PropTypes.string,
+		behavior: PropTypes.string,
+	};
+
 	const [openSnack, setOpenSnack] = useState(false);
 
 	const closeSnack = () => setOpenSnack(false);
@@ -30,6 +39,7 @@ const Contact = ({ img, text, link, alertText, behavior }) => {
 						<ListItemIcon>
 							<img width='24' src={img} alt='text-preview'></img>
 						</ListItemIcon>
+
 						<ListItemText primary={text} sx={{ color: `white` }} />
 					</ListItemButton>
 				</>
@@ -41,14 +51,19 @@ const Contact = ({ img, text, link, alertText, behavior }) => {
 						<ListItemIcon>
 							<img width='24' src={img} alt='text-preview'></img>
 						</ListItemIcon>
+
 						<ListItemText primary={text} sx={{ color: `white` }} />
 					</ListItemButton>
 					<Snackbar
 						open={openSnack}
 						onClose={closeSnack}
-						autoHideDuration={8000}
+						autoHideDuration={40000}
 					>
-						<Alert onClose={closeSnack} severity='success'>
+						<Alert
+							sx={{ position: 'fixed', bottom: '320px' }}
+							onClose={closeSnack}
+							severity='success'
+						>
 							{alertText}
 						</Alert>
 					</Snackbar>
@@ -57,7 +72,7 @@ const Contact = ({ img, text, link, alertText, behavior }) => {
 		}
 	};
 
-	return behaviorHandler();
+	return <>{behaviorHandler()}</>;
 };
 
 export default Contact;

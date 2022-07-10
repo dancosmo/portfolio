@@ -21,7 +21,7 @@ import MuiTypography from '@mui/material/Typography';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
-import SideBar from './SideBar';
+import SideBar from './Navbar';
 import AboutMe from './AboutMe';
 import MyProjects from './projects/MyProjects';
 import Skills from './Skills';
@@ -65,6 +65,11 @@ export const StyledTypography = styled(MuiTypography)(({ theme }) => ({
 		textAlign: 'center',
 		fontSize: '1rem',
 	},
+	[theme.breakpoints.down('sm')]: {
+		textAlign: 'start',
+		fontSize: '0.7rem',
+		minHeight: 'auto !important',
+	},
 }));
 
 const drawerWidth = 240;
@@ -79,7 +84,7 @@ const AppBar = styled(MuiAppBar, {
 	}),
 	...(open && {
 		marginLeft: drawerWidth,
-		width: `calc(100% - ${drawerWidth}px)`,
+		width: '100%',
 		transition: theme.transitions.create(['width', 'margin'], {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.enteringScreen,
@@ -93,9 +98,13 @@ const Drawer = styled(MuiDrawer, {
 	'& .MuiDrawer-paper': {
 		borderColor: 'white',
 		backgroundColor: mdTheme.palette.grey[900],
-		position: 'relative',
+		position: 'absolute',
 		whiteSpace: 'nowrap',
+		marginTop: '64px',
 		width: drawerWidth,
+		height: 'auto',
+		borderBottom: '1px solid white',
+		overflow: 'hidden',
 		transition: theme.transitions.create('width', {
 			easing: theme.transitions.easing.sharp,
 			duration: theme.transitions.duration.enteringScreen,
@@ -116,7 +125,7 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 function Content() {
-	const [open, setOpen] = useState(true);
+	const [open, setOpen] = useState(false);
 	const [switchLenguage, setSwitchLenguage] = useState(true);
 
 	const changeLanguage = () => {
@@ -131,13 +140,14 @@ function Content() {
 	return (
 		<BrowserRouter>
 			<ThemeProvider theme={mdTheme}>
-				<Box sx={{ display: 'flex' }}>
+				<Box sx={{ display: 'flex', paddingLeft: '72px' }}>
 					<CssBaseline />
 					<AppBar position='absolute' open={open}>
 						<Toolbar
 							sx={{
 								pr: '24px',
-								textAlign: 'center', // keep right padding when drawer closed
+								textAlign: 'center',
+								minHeight: '64px',
 							}}
 						>
 							<IconButton
@@ -151,6 +161,21 @@ function Content() {
 								}}
 							>
 								<MenuIcon
+									sx={{
+										color: 'white',
+									}}
+								/>
+							</IconButton>
+							<IconButton
+								edge='start'
+								color='primary'
+								onClick={toggleDrawer}
+								sx={{
+									marginRight: '36px',
+									...(!open && { display: 'none' }),
+								}}
+							>
+								<ChevronLeftIcon
 									sx={{
 										color: 'white',
 									}}
@@ -179,28 +204,13 @@ function Content() {
 						</Toolbar>
 					</AppBar>
 					<Drawer
-						sx={{ backgroundColor: mdTheme.palette.grey[900] }}
+						sx={{
+							backgroundColor: mdTheme.palette.grey[900],
+						}}
 						variant='permanent'
+						position='absolute'
 						open={open}
 					>
-						<Toolbar
-							sx={{
-								display: 'flex',
-								alignItems: 'center',
-								justifyContent: 'flex-end',
-								px: [1],
-							}}
-						>
-							<IconButton onClick={toggleDrawer}>
-								<ChevronLeftIcon
-									sx={{
-										color: 'white',
-									}}
-								/>
-							</IconButton>
-						</Toolbar>
-						<Divider sx={{ borderColor: 'white' }} />
-
 						<List component='nav'>
 							<SideBar theme={mdTheme} />
 							<Divider sx={{ my: 1, borderColor: 'white' }} />
@@ -215,6 +225,7 @@ function Content() {
 									sx={{ color: `white` }}
 								/>
 							</ListItem>
+
 							<Contact
 								img={gmail}
 								behavior='copy'
@@ -226,6 +237,7 @@ function Content() {
 										: 'Copiado al portapapeles'
 								}
 							/>
+
 							<Contact
 								behavior='copy'
 								img={discord}
@@ -257,6 +269,7 @@ function Content() {
 							/>
 						</List>
 					</Drawer>
+
 					<Box
 						component='main'
 						sx={{
