@@ -63,7 +63,7 @@ const AboutMe = () => {
 					></Avatar>
 					{loading ? <CircularProgress color='secondary' /> : null}
 				</Grid>
-				<Grid item xs={8}>
+				<Grid item xs={6}>
 					<Paper
 						sx={{
 							backgroundColor: theme.palette.grey[900],
@@ -103,7 +103,7 @@ const AboutMe = () => {
 							position: 'relative',
 							overflow: 'hidden',
 							width: '100%',
-							paddingTop: '56.25%',
+							paddingTop: '55%',
 						}}
 					>
 						<iframe
@@ -115,8 +115,8 @@ const AboutMe = () => {
 								left: '0',
 								bottom: '0',
 								right: '0',
-								width: '75%',
-								height: '75%',
+								width: '60%',
+								height: '60%',
 							}}
 							src={aboutMe.videoLink}
 							title='YouTube video player'

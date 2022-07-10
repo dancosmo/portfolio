@@ -21,7 +21,7 @@ const Project = ({ name, description, image, badges, link }) => {
 
 	return (
 		<>
-			<Grid item xs={6}>
+			<Grid item xs={5}>
 				<StyledTypography color='secondary' variant='h5' mb={2}>
 					{name}
 				</StyledTypography>
@@ -46,7 +46,7 @@ const Project = ({ name, description, image, badges, link }) => {
 					</StyledTypography>
 				</Link>
 			</Grid>
-			<Grid item xs={6}>
+			<Grid item xs={5}>
 				<Container
 					sx={{
 						maxWidth: '600px !important',

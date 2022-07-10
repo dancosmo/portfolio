@@ -45,11 +45,13 @@
 	margin: 1em;
 }
 
-.Example__container__document .react-pdf__Page canvas {
-	width: 100%;
-	height: auto !important;
-}
-
 .Example__container__document .react-pdf__message {
 	color: white;
+}
+
+@media only screen and (max-width: 670px) {
+	.react-pdf__Page__canvas {
+		width: 100% !important;
+		height: auto !important;
+	}
 }
