@@ -22,8 +22,7 @@ import cssbadge from '../../images/css.svg';
 const contentEnglish = {
 	title: 'My Projects',
 	watchatTitle: 'Watchat',
-	watchatContent:
-		'React app to for chatting, watching videos and share the video.',
+	watchatContent: 'React app for chatting, watching and sharing videos.',
 	rpsTitle: 'Rock, Paper, Scissors',
 	rpsContent:
 		'Simple Rock Paper Scissors game with multiplayer mode for 2 players and spectator.',
